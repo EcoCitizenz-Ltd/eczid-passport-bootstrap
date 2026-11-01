@@ -1,5 +1,5 @@
 name: "ECZ-ID Passport Bootstrap"
-description: "Route a supported machine subject through its free Business Passport Parent gateway and one of seven free ECZ-ID child Passport families without auto-issuing identity or inferring ownership."
+description: "Route machine subjects through the free Business Passport Parent gateway and seven free ECZ-ID child Passport families."
 author: EcoCitizenz Ltd
 branding:
   icon: shield
