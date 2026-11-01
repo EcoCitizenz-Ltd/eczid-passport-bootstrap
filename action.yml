@@ -1,0 +1,55 @@
+name: "ECZ-ID Passport Bootstrap"
+description: "Route a supported machine subject through its free Business Passport Parent gateway and one of seven free ECZ-ID child Passport families without auto-issuing identity or inferring ownership."
+author: EcoCitizenz Ltd
+branding:
+  icon: shield
+  color: green
+inputs:
+  family:
+    description: "agent | mcp | plugin | api | iot | sdk | service_workload | auto"
+    required: false
+    default: "auto"
+  mode:
+    description: "check or scaffold. Scaffold returns a reference path but performs no identity issuance."
+    required: false
+    default: "check"
+  ecz-id:
+    description: "Optional declared ECZ-ID reference. A child reference preserves its encoded Parent; a root ECZ-ID is treated as a Parent reference."
+    required: false
+  parent-ecz-id:
+    description: "Optional explicit Business Passport Parent ECZ-ID reference. Must be a root ECZ-ID, not a child Passport reference."
+    required: false
+  report-path:
+    description: "Path for the JSON report."
+    required: false
+    default: "eczid-passport-bootstrap.json"
+outputs:
+  family:
+    description: "Resolved child Passport family when deterministically available."
+  passport-present:
+    description: "Whether a valid child Passport ECZ-ID reference was declared."
+  ecz-id:
+    description: "Normalized declared child Passport ECZ-ID when valid."
+  resolver-url:
+    description: "Public child Resolver re-check URL when applicable."
+  parent-present:
+    description: "Whether a Business Passport Parent reference was explicitly declared or encoded in the supplied ECZ-ID."
+  parent-ecz-id:
+    description: "Normalized Business Passport Parent ECZ-ID reference when available."
+  parent-resolver-url:
+    description: "Public Parent Resolver re-check URL when applicable."
+  parent-acquisition-url:
+    description: "Free Declared Business Passport start/reuse route."
+  acquisition-url:
+    description: "Current free child Passport acquisition route."
+  next-action-url:
+    description: "The single current Parent, child or Resolver route matching next-action."
+  next-action:
+    description: "SELECT_FAMILY, GET_FREE_PARENT, GET_FREE_PASSPORT, RECHECK_RESOLVER or FIX_INVALID_REFERENCE."
+  reason-codes:
+    description: "Deterministic reason-code list."
+  report-path:
+    description: "Generated JSON report path."
+runs:
+  using: node24
+  main: dist/index.js
