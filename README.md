@@ -2,11 +2,48 @@
 
 Route a supported machine subject through its free Business Passport Parent gateway and one of seven free ECZ-ID child Passport families without auto-issuing identity or inferring ownership.
 
+**Start without an ECZ-ID account or API key.** ECZ-ID does not charge to install or use this public Action; GitHub Actions runner usage follows your GitHub plan.
+
 ## Outcome
 
 Preserve the free Business Passport Parent -> seven free child Passport hierarchy while keeping missing identity neutral and requiring user confirmation before any issuance/publishing.
 
-## Quick start
+## Run it now
+
+Create `.github/workflows/eczid.yml`, paste this complete first-run workflow, commit it, then run it from the **Actions** tab.
+
+```yaml
+name: ECZ-ID Passport Bootstrap
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  eczid:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v7
+
+      - uses: EcoCitizenz-Ltd/eczid-passport-bootstrap@v1
+        with:
+          family: auto
+```
+
+### First-run path
+
+1. Add the workflow above.
+2. Run it manually with **Run workflow**.
+3. Open the job and review the ECZ-ID Job Summary.
+4. Use the generated local JSON report and outputs below for your own policy or follow-up automation.
+5. If persistent machine identity is useful, [choose the right free ECZ-ID Passport](https://developers.ecocitizenz.com/get-started/free-passport/?utm_source=github&utm_medium=action-readme&utm_campaign=github-actions&utm_content=eczid-passport-bootstrap); identity is optional and does not change the technical result.
+
+## Minimal Action step
+
+Already have a workflow? Add only this step:
 
 ```yaml
 - uses: EcoCitizenz-Ltd/eczid-passport-bootstrap@v1
@@ -47,6 +84,7 @@ Preserve the free Business Passport Parent -> seven free child Passport hierarch
 - The Action itself does not require repository write permission.
 - No ECZ-ID secret or API key is required for this public Action.
 - Supported workflow/configuration files are read locally inside the GitHub Actions workspace; repository source is not uploaded to ECZ-ID.
+- The complete first-run example grants only `contents: read`; tighten or extend permissions only when the rest of your workflow genuinely needs more.
 - See [PRIVACY.md](./PRIVACY.md), [SECURITY.md](./SECURITY.md) and [SUPPORT.md](./SUPPORT.md) for the complete public boundary.
 
 ## Version pinning
@@ -69,6 +107,8 @@ The examples use the stable `@v1` compatibility tag. For policies that require a
 A free Declared Business Passport is the organisation Parent gateway for the seven free machine Passport families: Agent, MCP, Plugin, API, IoT / Device, SDK, and Service & Workload. Verified or Assured strengthens the same Parent ECZ-ID; it does not automatically independently verify a child Passport.
 
 When an identity/currentness next step is warranted, ECZ-ID returns at most one neutral route. Payment never changes the technical result.
+
+[Choose the right free Passport →](https://developers.ecocitizenz.com/get-started/free-passport/?utm_source=github&utm_medium=action-readme&utm_campaign=github-actions&utm_content=eczid-passport-bootstrap)
 
 ## Works with GitHub, not against it
 
