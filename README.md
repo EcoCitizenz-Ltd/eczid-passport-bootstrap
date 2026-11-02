@@ -114,6 +114,10 @@ When an identity/currentness next step is warranted, ECZ-ID returns at most one 
 
 ECZ-ID complements GitHub-native controls with persistent identity, accountable operator context, declared authority, current state, change and re-checkable evidence. It does not replace CodeQL, secret scanning, dependency review, workflow dependency lockfiles or artifact attestations.
 
+## License
+
+ECZ-ID does not charge to install or use this public Action for its intended purpose. The distributed implementation remains proprietary; see [LICENSE.txt](./LICENSE.txt) for the exact terms.
+
 ## Support and security
 
 Use the repository issue tracker only for reproducible product defects that contain no secrets or customer-private evidence. Follow [SECURITY.md](./SECURITY.md) for vulnerability reporting and [SUPPORT.md](./SUPPORT.md) for private/commercial support routes.
